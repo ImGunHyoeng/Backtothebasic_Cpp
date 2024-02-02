@@ -6,14 +6,18 @@ using namespace std;
 
 int main()
 {
-
-	array<float, 3> results40yardrun;
 	
-	cin >> results40yardrun[0];
-	cin >> results40yardrun[1];
-	cin >> results40yardrun[2];
-	cout << results40yardrun.size() <<" " << (results40yardrun[0] + results40yardrun[1] + results40yardrun[2]) / 3;
+	char ch;
+	int count = 0;
+	cin >> ch; 
+	while (ch != '#')
+	{
+		cout << ch;
+		++count;
+		cin >> ch;
+	}
 
+	cout << endl << count << "문자를 읽었습니다";
 	return 0;
 }
 
