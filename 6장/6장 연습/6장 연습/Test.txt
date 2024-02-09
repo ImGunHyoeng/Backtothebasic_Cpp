@@ -1,0 +1,68 @@
+std::basic_istream<CharT,Traits>:: 무시
+ C++ 입/출력 라이브러리 표준::basic_istream 
+basic_istream & 무시 ( std:: streamsize count = 1 , int_type delim = Traits :: eof ( ) ) ;
+다음을 포함할 때까지 입력 스트림에서 문자를 추출하고 삭제합니다.제거하다.
+
+ignoreUnformattedInputFunction 으로 동작합니다 . 센트리 개체를 구성하고 확인한 후 스트림에서 문자를 추출하고 다음 조건 중 하나가 발생할 때까지 해당 문자를 삭제합니다.
+
+세다문자가 추출되었습니다. 이 테스트는 특별한 경우에는 비활성화됩니다.세다같음std:: 숫자_한계 < std:: 스트림 크기 > :: 최대 ( ).
+입력 시퀀스에서 파일 끝 조건이 발생하며, 이 경우 함수는 호출됩니다.setstate ( eofbit ).
+다음으로 사용할 수 있는 문자씨입력 순서는 다음과 같습니다.제거하다, 에 의해 결정됨특성 :: eq_int_type ( 특성 :: to_int_type ( c ) , delim ). 구분 문자가 추출되어 삭제됩니다. 이 테스트는 다음과 같은 경우 비활성화됩니다.제거하다~이다특성 :: eof ( ).
+매개변수
+세다	-	추출할 문자 수
+제거하다	-	추출을 중지할 구분 문자입니다. 추출되기도 합니다
+반환 값
+* 이것
+
+예외
+오류가 발생하고(오류 상태 플래그가 goodbit 가 아님 ) 해당 상태에 대해 예외를 발생시키도록 설정된 경우 실패합니다 .
+내부 작업에서 예외가 발생하면 이를 포착하고 badbit가 설정됩니다. 에 대해 예외()가 설정된 경우 badbit예외가 다시 발생합니다.
+
+예
+다음 예에서는 ignore숫자가 아닌 입력을 건너뛰는 데 사용됩니다.
+
+이 코드를 실행하세요
+#include <iostream> 
+#include <한계> 
+#include <sstream>
+ 
+constexpr  auto max_size =  std:: 숫자_한계 < std:: streamsize > :: max ( ) ;
+ 
+int main ( ) 
+{ 
+    std:: istringstream 입력 ( "1 \n " 
+                             "숫자가 아닌 입력 \n " 
+                             "2 \n " ) ; 
+    for  ( ;; ) 
+    { 
+        int n ; 
+        입력 >> n ;
+ 
+        if  ( input.eof ( ) || input.bad ( ) ) break ; _ _ else if ( input.fail ( ) ) { 입력 
+            . 분명한 ( ) ; // 페일비트 
+            입력을 설정 해제합니다. 무시 ( max_size, ' \n ' ) ; // 잘못된 입력 건너뛰기 } else std:: cout << n << ' \n ' ; } } 
+            
+          
+          
+        
+        
+              
+    
+산출:
+
+1
+2
+결함 보고서
+다음 동작 변경 결함 보고서는 이전에 게시된 C++ 표준에 소급하여 적용되었습니다.
+
+DR	적용대상	게시된 동작	올바른 행동
+LWG 172	C++98	유형세다다음과 같이 잘못 지정되었습니다.정수	std::streamsize 로 수정됨
+또한보십시오
+얻다
+ 
+문자 추출
+(공용 멤버 함수)
+getline
+ 
+주어진 문자를 찾을 때까지 문자를 추출합니다
+(공용 멤버 함수).
